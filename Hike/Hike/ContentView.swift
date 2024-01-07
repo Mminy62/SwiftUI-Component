@@ -10,9 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image("image-1")
-                .resizable()
-                .scaledToFit()
+            CardView()
         }
         .padding()
     }
