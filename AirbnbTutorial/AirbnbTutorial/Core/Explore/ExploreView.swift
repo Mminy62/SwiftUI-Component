@@ -11,14 +11,21 @@ struct ExploreView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                SearchAndFilterBar()
+                
                 LazyVStack(spacing: 32) { // 화면에 나타난 아이템만 이미지를 랜더링(VStack은 모든아이템을 다하나?)
                     ForEach(0 ... 10, id: \.self) { listing in
-                        ListingItemView()
-                            .frame(height: 400)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        NavigationLink(value: listing) {
+                            ListingItemView()
+                                .frame(height: 400)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
                     }
                 }
                 .padding()
+            }
+            .navigationDestination(for: Int.self) { listing in
+                Text("Listing detail view...")
             }
         }
     }
