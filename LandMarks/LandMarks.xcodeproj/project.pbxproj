@@ -67,11 +67,8 @@
 		D23E6CA92CD4A3AA00D06CF3 /* LandMarks */ = {
 			isa = PBXGroup;
 			children = (
-				D23E6CE12CD4BC7C00D06CF3 /* Views */,
 				D23E6CAA2CD4A3AA00D06CF3 /* LandMarksApp.swift */,
-				D23E6CAC2CD4A3AA00D06CF3 /* ContentView.swift */,
-				D23E6CD42CD4A41D00D06CF3 /* MapView.swift */,
-				D23E6CD62CD4A43D00D06CF3 /* CircleImage.swift */,
+				D23E6CE12CD4BC7C00D06CF3 /* Views */,
 				D23E6CDA2CD4A4C000D06CF3 /* Model */,
 				D23E6CAE2CD4A3AD00D06CF3 /* Assets.xcassets */,
 				D23E6CB02CD4A3AD00D06CF3 /* Preview Content */,
@@ -100,9 +97,12 @@
 		D23E6CE12CD4BC7C00D06CF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D23E6CAC2CD4A3AA00D06CF3 /* ContentView.swift */,
 				D23E6CE22CD4BF4700D06CF3 /* LandmarkList.swift */,
-				D23E6CE42CD4BFFC00D06CF3 /* LandmarkDetail.swift */,
 				D23E6CDF2CD4BC7600D06CF3 /* LandmarkRow.swift */,
+				D23E6CE42CD4BFFC00D06CF3 /* LandmarkDetail.swift */,
+				D23E6CD62CD4A43D00D06CF3 /* CircleImage.swift */,
+				D23E6CD42CD4A41D00D06CF3 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
