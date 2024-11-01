@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @Environment(ModelData.self) var modelData // data 변경이 일어나기 때문에
     var landmark: Landmark
     
+    var landmarkIndex: Int {
+        modelData.landmarks.firstIndex(where: {$0.id == landmark.id })!
+    }
+    
     var body: some View {
+        @Bindable var modelData = modelData
+        
         ScrollView {
             MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)//width 는 해당 뷰에 맞게 자동 조절
@@ -20,9 +27,12 @@ struct LandmarkDetail: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading){
-                Text(landmark.name)
-                    .font(.title)
-                    .fontWeight(.bold)
+                HStack {
+                    Text(landmark.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                }
                 
                 HStack{
                     Text(landmark.park)
@@ -33,8 +43,8 @@ struct LandmarkDetail: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 
-                Divider()
-                //지역 설명을 위한 구분선 추가
+                Divider() //지역 설명을 위한 구분선 추가
+                
                 Text("About \(landmark.name)")
                     .font(.title2)
                 Text(landmark.description)
@@ -50,5 +60,7 @@ struct LandmarkDetail: View {
 }
 
 #Preview {
-    LandmarkDetail(landmark: ModelData().landmarks[0])
+    let modelData = ModelData()
+    return LandmarkDetail(landmark: modelData.landmarks[0])
+        .environment(modelData)
 }
