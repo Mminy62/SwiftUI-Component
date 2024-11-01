@@ -173,6 +173,7 @@ struct ListingDetailView: View {
             }
             .padding()
         }
+        
         .ignoresSafeArea()
         .padding(.bottom, 64) // overlay로 가려지는 content를 위한 높이 생성
         .overlay(alignment: .bottom) {
@@ -213,6 +214,7 @@ struct ListingDetailView: View {
             .background(.white)
         }
     }
+    
 }
 
 #Preview {
