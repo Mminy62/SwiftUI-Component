@@ -12,6 +12,7 @@ import Foundation
 @Observable
 class ModelData {
     var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
 }
 
 // MARK: 앱 메인 번들에서 지정된 이름의 JSON 데이터를 가져오는 load 메서드
