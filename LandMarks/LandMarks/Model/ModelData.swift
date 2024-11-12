@@ -13,6 +13,17 @@ import Foundation
 class ModelData {
     var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
+    
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
+    
+    var categories: [String: [Landmark]] {
+        Dictionary (
+            grouping: landmarks,
+            by: { $0.category.rawValue }
+        )
+    }
 }
 
 // MARK: 앱 메인 번들에서 지정된 이름의 JSON 데이터를 가져오는 load 메서드
